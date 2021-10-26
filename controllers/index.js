@@ -97,7 +97,7 @@ module.exports.performRegisterPage = (req, res, next) => {
     res.render('index', { title: 'Register' });
 }
 
-module.exports.performLogout = (res, req ,next)=>{
+module.exports.performLogout = (req, res, next) => {
     req.logout();
     res.redirect('/');
 }

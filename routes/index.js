@@ -29,6 +29,6 @@ router.post('/login',indexController.performLoginPage);
 
 router.post('/register',indexController.performRegisterPage);
 
-router.get('/logout',indexController.performLogout);
+router.get('/logout', indexController.performLogout);
 
 module.exports = router;

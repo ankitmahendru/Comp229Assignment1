@@ -13,7 +13,7 @@
     <figure class="text-center">
       <h1 class="display-1">Business Contact List</h1>
       <a class="btn btn-primary" href="contactList/add" type="button">Add New Contact</a>
-    </figure>
+      </figure>
 
     <table class="table">
       <thead>
@@ -21,8 +21,9 @@
           <th scope="col">Name</th>
           <th scope="col">Contact</th>
           <th scope="col">Email</th>
+          <% if(typeof displayName == 'string' && displayName) { %>
           <th scope="col" colspan="2">Action</th>
-
+          <% } %>
         </tr>
       </thead>
       <tbody>
@@ -31,9 +32,10 @@
           <td> <%= BookList[count].contactName %> </td>
           <td> <%= BookList[count].contactPhone %> </td>
           <td> <%=BookList[count].contactEmail %> </td>
+          <% if(typeof displayName == 'string' && displayName) { %>
           <td><a class="btn btn-info" href="contactList/Update/<%= BookList[count]._id %>" type="button">Update</a></td>
           <td><a class="btn btn-danger" href="contactList/delete/<%= BookList[count]._id %>" type="button">Delete</a></td>
-
+          <% } %> 
         </tr>
         <% } %>
 
