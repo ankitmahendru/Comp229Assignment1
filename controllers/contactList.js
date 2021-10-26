@@ -11,7 +11,8 @@ module.exports.displayContactList = (req, res, next) => {
             console.log(BookList)
             res.render('contactList', {
                 title: 'Contact List',
-                BookList: BookList
+                BookList: BookList,
+                displayName : req.user ? req.user.displayName : ''  
             });
         }
 
@@ -46,7 +47,8 @@ module.exports.displayUpdateContact =(req, res, next) => {
         } else {
             res.render('contactBook/update', {
                 title: "Update Contact",
-                contact: contactToUpdate
+                contact: contactToUpdate,
+                displayName : req.user ? req.user.displayName : ''
             })
         }
     });
@@ -86,6 +88,7 @@ module.exports.performDeleteContact = (req, res, next) => {
 
 module.exports.displayAddContact =  (req, res, next) => {
     res.render('contactBook/add', {
-        title: 'Add Contact'
+        title: 'Add Contact',
+        displayName : req.user ? req.user.displayName : ''
     })
 }

@@ -18,7 +18,9 @@
 <% } else if(title == "Services"){ %>
   <%- include partials/services.ejs %> 
 <% } else if(title == "Login"){ %>
-  <%- include partials/login.ejs %> 
+  <%- include auth/login.ejs %> 
+<% } else if(title == "Register"){ %>
+  <%- include auth/register.ejs %> 
 <% } %>
 
 

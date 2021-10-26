@@ -2,20 +2,32 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
 
+var passport = require('passport');
+
 var contactList = require('../model/contactList');
 var contactController = require('../controllers/contactList')
 
-router.get('/', contactController.displayContactList);
+//Authanticate User and Gaurd
+function requireAuth(req, res, next){
 
-router.get('/add',contactController.displayAddContact);
+    if(!req.isAuthenticated()){
 
-router.post('/add', contactController.performAddContact);
+        return res.redirect('/login');
+    } next();
 
-router.get('/update/:id',contactController.displayUpdateContact )
+}
 
-router.post('/update/:id',contactController.performUpdateContact)
+router.get('/',contactController.displayContactList);
 
-router.get('/delete/:id',contactController.performDeleteContact)
+router.get('/add',requireAuth,contactController.displayAddContact);
+
+router.post('/add', requireAuth,contactController.performAddContact);
+
+router.get('/update/:id',requireAuth,contactController.displayUpdateContact )
+
+router.post('/update/:id',requireAuth,contactController.performUpdateContact)
+
+router.get('/delete/:id',requireAuth,contactController.performDeleteContact)
 
 
 module.exports = router;
