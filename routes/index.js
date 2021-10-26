@@ -1,32 +1,27 @@
 /*<!--     Author- Ankit Mahendru       -->
 <!--     StudentID-301205519     -->
-<!--     Last Updated on 28/09/2021      -->*/
+<!--     Last Updated on 26/10/2021      -->*/
 
 var express = require('express');
+const contactList = require('../model/contactList');
 var router = express.Router();
 
+var indexController = require('../controllers/index')
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+router.get('/', indexController.displayHomePage);
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+router.get('/home',indexController.displayHomePage);
 /* GET Contacts page. */
-router.get('/contact', function(req, res, next) {
-  res.render('index', { title: 'Contacts' });
-});
+router.get('/contact',  indexController.displayContactsPage);
 /* GET About Me page. */
-router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About Me' });
-});
+router.get('/about', indexController.displayAboutMePage);
 /* GET Products page. */
-router.get('/products', function(req, res, next) {
-  res.render('index', { title: 'Products' });
-});
+router.get('/products', indexController.displayProductsPage);
 /* GET Services page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', { title: 'Services' });
-});
+router.get('/services',indexController.displayServicesPage);
+
+router.get('/login',indexController.displayLoginPage);
+
+
 module.exports = router;

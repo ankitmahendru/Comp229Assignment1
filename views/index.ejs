@@ -5,7 +5,7 @@
 
 <%- include partials/main_nav.ejs %> 
 
-<main>
+<main style="margin-bottom: 10%;">
 <!--     Changing the Content of Webpage based on title      -->
 <% if(title == "About Me"){ %>
   <%- include partials/aboutme.ejs %> 
@@ -17,7 +17,10 @@
   <%- include partials/contacts.ejs %> 
 <% } else if(title == "Services"){ %>
   <%- include partials/services.ejs %> 
+<% } else if(title == "Login"){ %>
+  <%- include partials/login.ejs %> 
 <% } %>
+
 
 
 </main>
